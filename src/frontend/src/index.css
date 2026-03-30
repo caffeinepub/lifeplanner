@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 1rem;
+
+    /* Cream background */
+    --background: 0.945 0.022 80;
+    --foreground: 0.14 0.008 60;
+
+    /* Card: warm white */
+    --card: 0.975 0.012 80;
+    --card-foreground: 0.14 0.008 60;
+
+    --popover: 0.975 0.012 80;
+    --popover-foreground: 0.14 0.008 60;
+
+    /* Primary: near-black warm */
+    --primary: 0.22 0.01 60;
+    --primary-foreground: 0.975 0.012 80;
+
+    /* Secondary: light peach */
+    --secondary: 0.92 0.05 55;
+    --secondary-foreground: 0.22 0.01 60;
+
+    /* Muted: soft cream */
+    --muted: 0.93 0.02 75;
+    --muted-foreground: 0.52 0.015 70;
+
+    /* Accent: coral/salmon */
+    --accent: 0.7 0.13 35;
+    --accent-foreground: 0.975 0.012 80;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.03 75;
+    --input: 0.88 0.03 75;
+    --ring: 0.7 0.13 35;
+
+    /* Peach tones */
+    --peach-light: 0.87 0.07 50;
+    --peach-mid: 0.82 0.09 45;
+    --peach-dark: 0.75 0.1 42;
+    --coral: 0.7 0.13 35;
+    --badge-fill: 0.83 0.08 48;
+
+    --chart-1: 0.7 0.13 35;
+    --chart-2: 0.75 0.1 42;
+    --chart-3: 0.65 0.1 150;
+    --chart-4: 0.8 0.12 90;
+    --chart-5: 0.6 0.12 260;
+
+    --sidebar: 0.975 0.012 80;
+    --sidebar-foreground: 0.14 0.008 60;
+    --sidebar-primary: 0.22 0.01 60;
+    --sidebar-primary-foreground: 0.975 0.012 80;
+    --sidebar-accent: 0.92 0.05 55;
+    --sidebar-accent-foreground: 0.22 0.01 60;
+    --sidebar-border: 0.88 0.03 75;
+    --sidebar-ring: 0.7 0.13 35;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-size: 16px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: linear-gradient(135deg, oklch(0.87 0.07 50), oklch(0.78 0.1 44));
+  }
+  .gradient-card {
+    background: linear-gradient(
+      135deg,
+      oklch(0.975 0.012 80),
+      oklch(0.96 0.025 70)
+    );
+  }
+  .text-coral {
+    color: oklch(var(--coral));
+  }
+  .bg-peach-light {
+    background-color: oklch(var(--peach-light));
+  }
+  .bg-peach-mid {
+    background-color: oklch(var(--peach-mid));
+  }
+  .bg-badge {
+    background-color: oklch(var(--badge-fill));
+  }
+  .mood-btn {
+    @apply text-2xl w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer select-none;
+  }
+  .mood-btn:hover {
+    transform: scale(1.15);
+  }
+  .mood-btn.active {
+    @apply ring-2 ring-accent ring-offset-2;
+    transform: scale(1.2);
+  }
+  .stepper-btn {
+    @apply w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-foreground font-bold text-lg transition-colors hover:bg-peach-mid hover:text-white;
+  }
+}
